@@ -7,14 +7,12 @@ import { createUserWithEmailAndPassword,
  } from "firebase/auth";
 
 function App() {
-  const [user, setUser] = React.useState({});
+  const [user, setUser] = React.useState(null);
 
   React.useEffect (() => {
     onAuthStateChanged(auth, (user) => {
       console.log(user);
-      if (user) {
-        setUser(user)
-      }
+      setUser(user);
     })
   }, []);
   function register() {
